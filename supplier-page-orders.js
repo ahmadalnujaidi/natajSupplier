@@ -35,10 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
           <td>${order.orderName}</td>
           <td>${order.quantity}</td>
           <td>${order.deadline}</td>
-          <td>${order.amount}</td>
-          <td>${order.currentStatus}</td>
+          <td>$${order.amount}</td>
+          <td class="status-clickable" data-order-id="${order.id}">${order.currentStatus}</td>
+          <td><button class="chat-button" data-order-id="${order.id}"><img src="./public/bxschat.svg"/></button></td>
         `;
         tbody.appendChild(tr);
+      });
+
+      // Add event listeners to chat buttons after orders are fetched
+      tbody.addEventListener("click", (e) => {
+        if (e.target.closest(".chat-button")) {
+          const orderId = e.target
+            .closest(".chat-button")
+            .getAttribute("data-order-id");
+          openChatModal(orderId);
+        }
       });
     } catch (error) {
       console.error("Error fetching orders:", error);
@@ -78,6 +89,197 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (error) {
       console.error("Error:", error);
+    }
+  });
+
+  // Select chat modal elements
+  const chatModal = document.getElementById("chatModal");
+  const closeChatButton = document.querySelector(".close-chat-button");
+  const chatForm = document.getElementById("chatForm");
+  const chatMessages = document.getElementById("chatMessages");
+  let currentOrderId = null;
+
+  function openChatModal(orderId) {
+    currentOrderId = orderId;
+    chatModal.style.display = "block";
+    loadChatMessages(orderId);
+  }
+
+  closeChatButton.addEventListener("click", () => {
+    chatModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target == chatModal) {
+      chatModal.style.display = "none";
+    }
+  });
+
+  // Function to load chat messages
+  async function loadChatMessages(orderId) {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/orders/${orderId}/chat`
+      );
+      const messages = await response.json();
+      chatMessages.innerHTML = "";
+      messages.forEach((msg) => {
+        const msgDiv = document.createElement("div");
+        msgDiv.innerHTML = `<strong>${msg.sender}:</strong> ${msg.content}`;
+        chatMessages.appendChild(msgDiv);
+      });
+    } catch (error) {
+      console.error("Error loading chat messages:", error);
+    }
+  }
+
+  // Handle chat form submission
+  chatForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const message = chatForm.message.value;
+    try {
+      const response = await fetch(
+        `http://localhost:3000/orders/${currentOrderId}/chat`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ sender: "supplier", content: message }),
+        }
+      );
+      if (response.ok) {
+        chatForm.reset();
+        loadChatMessages(currentOrderId);
+      } else {
+        console.error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  });
+
+  // Get modal elements
+  const statusModal = document.getElementById("statusModal");
+  const statusCloseButton = document.querySelector(".close-button");
+  const statusForm = document.getElementById("statusForm");
+
+  // Function to open modal
+  function openModal(orderId) {
+    currentOrderId = orderId;
+    statusModal.style.display = "block";
+  }
+
+  // Function to close modal
+  function closeModal() {
+    statusModal.style.display = "none";
+    statusForm.reset();
+    currentOrderId = null;
+  }
+
+  // Event listener for close button
+  statusCloseButton.addEventListener("click", closeModal);
+
+  // Event listener for clicks outside the modal content
+  window.addEventListener("click", (event) => {
+    if (event.target == statusModal) {
+      closeModal();
+    }
+  });
+
+  // Event listener for form submission
+  statusForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (!currentOrderId) return;
+
+    const status = statusForm.status.value;
+    const location = statusForm.location.value;
+    const notes = statusForm.notes.value;
+    const imageFile = statusForm.image.files[0];
+
+    const data = {
+      status: status,
+      type: "bytea",
+    };
+
+    if (location) {
+      data.location = location;
+    }
+
+    if (notes) {
+      data.notes = notes;
+    }
+
+    if (imageFile) {
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        data.image = reader.result.split(",")[1];
+
+        try {
+          const response = await fetch(
+            `http://localhost:3000/orders/${currentOrderId}/status-updates`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          );
+
+          if (response.ok) {
+            // Optionally, update the status on the page
+            const statusCell = document.querySelector(
+              `.status-clickable[data-order-id="${currentOrderId}"]`
+            );
+            if (statusCell) {
+              statusCell.textContent = status;
+            }
+            closeModal();
+          } else {
+            console.error("Failed to update status");
+          }
+        } catch (error) {
+          console.error("Error updating status:", error);
+        }
+      };
+
+      reader.readAsDataURL(imageFile);
+    } else {
+      // Send POST request without image
+      fetch(`http://localhost:3000/orders/${currentOrderId}/status-updates`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Optionally, update the status on the page
+            const statusCell = document.querySelector(
+              `.status-clickable[data-order-id="${currentOrderId}"]`
+            );
+            if (statusCell) {
+              statusCell.textContent = status;
+            }
+            closeModal();
+          } else {
+            console.error("Failed to update status");
+          }
+        })
+        .catch((error) => {
+          console.error("Error updating status:", error);
+        });
+    }
+  });
+
+  // Event delegation for status clicks
+  document.getElementById("ordersTable").addEventListener("click", (e) => {
+    if (e.target && e.target.classList.contains("status-clickable")) {
+      const orderId = e.target.getAttribute("data-order-id");
+      openModal(orderId);
     }
   });
 });

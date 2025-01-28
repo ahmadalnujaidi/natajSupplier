@@ -1372,7 +1372,7 @@
 #ordersTable th,
 #ordersTable td {
   text-align: left;
-  /* Optionally set specific widths for each column */
+  padding: 8px 10px; /* Reduced padding */
 }
 
 #ordersTable th:nth-child(1),
@@ -1382,12 +1382,12 @@
 
 #ordersTable th:nth-child(2),
 #ordersTable td:nth-child(2) {
-  width: 20%;
+  width: 10%; /* Reduced from 20% */
 }
 
 #ordersTable th:nth-child(3),
 #ordersTable td:nth-child(3) {
-  width: 20%;
+  width: 12%; /* Reduced from 20% */
 }
 
 #ordersTable th:nth-child(4),
@@ -1397,7 +1397,7 @@
 
 #ordersTable th:nth-child(5),
 #ordersTable td:nth-child(5) {
-  width: 15%;
+  width: 10%;
 }
 
 #ordersTable th:nth-child(6),
@@ -1410,8 +1410,27 @@
   width: 10%;
 }
 
+#ordersTable td:first-child,
+#ordersTable td:nth-child(7) {
+  text-decoration: underline;
+}
+
 #ordersTable tbody td {
-  padding: 12px 15px;
+  padding: 5px 10px;
+}
+
+.chat-button {
+  padding: var(--padding-xs) var(--padding-sm);
+  /* background-color: var(--color-slateblue-300); */
+  background-color: #ffffff;
+  border: none;
+  border-radius: var(--br-3xs);
+  color: var(--white-white);
+  cursor: pointer;
+}
+
+.chat-button:hover {
+  background-color: var(--color-slateblue-400);
 }
 
 @media screen and (max-width: 1325px) {

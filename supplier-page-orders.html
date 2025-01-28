@@ -66,7 +66,9 @@
                 />
 
                 <div class="process-container">
-                  <div class="process1">Process</div>
+                  <a class="process1" href="supplier-page-process.html"
+                    >Process</a
+                  >
                 </div>
               </div>
               <div class="menu-icons3">
@@ -202,18 +204,32 @@
                       <th>Quantity</th>
                       <th>Deadline</th>
                       <th>Amount</th>
-                      <th>Current Status</th>
+                      <th>Status</th>
+                      <th></th>
                     </tr>
                   </thead>
+                  <tbody>
+                    <!-- Order rows will be populated here -->
+                    <tr>
+                      <!-- ...existing cells... -->
+                      <td
+                        class="status-clickable"
+                        data-order-id="ORDER_ID_HERE"
+                      >
+                        Pending
+                      </td>
+                      <td>
+                        <button class="chat-button">
+                          <img src="./public/bxschat.svg" />
+                        </button>
+                      </td>
+                    </tr>
+                    <!-- ...existing rows... -->
+                  </tbody>
                 </table>
                 <div class="divider">
                   <div class="divider-child"></div>
                 </div>
-                <table id="ordersTable">
-                  <tbody>
-                    <!-- Order rows will be populated here -->
-                  </tbody>
-                </table>
               </div>
             </div>
           </div>
@@ -279,6 +295,47 @@
           />
 
           <button type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Chat Modal Structure -->
+    <div class="modal" id="chatModal">
+      <div class="modal-content">
+        <span class="close-chat-button">&times;</span>
+        <div id="chatMessages">
+          <!-- Chat messages will be displayed here -->
+        </div>
+        <form id="chatForm">
+          <input
+            type="text"
+            name="message"
+            placeholder="Type your message..."
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Status Modal Structure -->
+    <div class="modal" id="statusModal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <form id="statusForm">
+          <label for="status">Status:</label>
+          <input type="text" id="status" name="status" required />
+
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" />
+
+          <label for="notes">Notes:</label>
+          <textarea id="notes" name="notes"></textarea>
+
+          <label for="image">Image:</label>
+          <input type="file" id="image" name="image" accept="image/*" />
+
+          <button type="submit">Update Status</button>
         </form>
       </div>
     </div>
