@@ -215,9 +215,7 @@
                       <td
                         class="status-clickable"
                         data-order-id="ORDER_ID_HERE"
-                      >
-                        Pending
-                      </td>
+                      ></td>
                       <td>
                         <button class="chat-button">
                           <img src="./public/bxschat.svg" />
@@ -321,10 +319,12 @@
     <!-- Status Modal Structure -->
     <div class="modal" id="statusModal">
       <div class="modal-content">
-        <span class="close-button">&times;</span>
+        <span class="close-button" id="closeStatusModal">&times;</span>
         <form id="statusForm">
-          <label for="status">Status:</label>
-          <input type="text" id="status" name="status" required />
+          <label for="statusSelect">Status:</label>
+          <select id="statusSelect" name="status">
+            <!-- Removed static <option value="pending">Pending</option> etc. -->
+          </select>
 
           <label for="location">Location:</label>
           <input type="text" id="location" name="location" />

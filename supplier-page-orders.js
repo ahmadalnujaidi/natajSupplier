@@ -282,4 +282,39 @@ document.addEventListener("DOMContentLoaded", () => {
       openModal(orderId);
     }
   });
+
+  document.getElementById("statusForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const selectedStatus = document.getElementById("statusSelect").value;
+    // ...handle status update logic...
+    closeStatusModal();
+  });
+
+  document.getElementById("closeStatusModal").addEventListener("click", () => {
+    closeStatusModal();
+  });
+
+  function openStatusModal() {
+    const modal = document.getElementById("statusModal");
+    modal.style.display = "block";
+  }
+  function closeStatusModal() {
+    const modal = document.getElementById("statusModal");
+    modal.style.display = "none";
+  }
+
+  fetch("http://localhost:3000/steps")
+    .then((response) => response.json())
+    .then((steps) => {
+      const statusSelect = document.getElementById("statusSelect");
+      statusSelect.innerHTML = "";
+      steps.sort((a, b) => a.stepNumber - b.stepNumber);
+      steps.forEach((step) => {
+        const option = document.createElement("option");
+        option.value = step.stepName; // Use stepName as the value
+        option.textContent = `${step.stepNumber} - ${step.stepName}`;
+        statusSelect.appendChild(option);
+      });
+    })
+    .catch((error) => console.error("Error fetching steps:", error));
 });
