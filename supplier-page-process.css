@@ -561,6 +561,8 @@
   font-family: inherit;
   font-size: inherit;
   padding-left: var(--padding-24xl);
+  list-style-type: none;
+  padding-left: 0;
 }
 .description-receiving-raw-mat-wrapper {
   display: flex;
@@ -966,6 +968,88 @@
   font-size: var(--font-weights-text-semibold-size);
   color: var(--color-slateblue-100);
   font-family: var(--font-inter);
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 10% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal form label {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.modal form input[type="text"],
+.modal form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.modal form button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal form button:hover {
+  background-color: #45a049;
+}
+
+/* Optional: Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    margin: 20% auto;
+  }
 }
 
 @media screen and (max-width: 1325px) {

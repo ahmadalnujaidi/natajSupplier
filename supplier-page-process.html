@@ -18,6 +18,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Eloquia Text:wght@300;400;600&display=swap"
     />
+    <script src="supplier-page-process.js"></script>
   </head>
   <body>
     <div class="supplier-pageprocess">
@@ -174,291 +175,40 @@
               </div>
               <button class="rectangle-container">
                 <div class="rectangle-div"></div>
-                <a class="add-step">Add Step</a>
+                <a class="add-step" id="add-step">Add Step</a>
               </button>
             </div>
-            <div class="process-step-order-issuance">
-              <div class="order-issuance-content">
-                <div class="order-issuance-content-child"></div>
-                <div class="order-issuance-rows">
-                  <h2 class="order-issuance">
-                    <ol class="raw-material-reception-and-pre">
-                      <li> Order Issuance</li>
-                    </ol>
-                  </h2>
-                  <div class="order-issuance-descriptions">
-                    <div class="starting-the-process">
-                      Starting the process by issuing the order
-                    </div>
-                  </div>
-                </div>
-                <button class="order-issuance-edit-buttons">
-                  <div class="group-div">
-                    <div class="frame-child1"></div>
-                    <a class="edit">Edit</a>
-                  </div>
-                </button>
-              </div>
-              <div class="order-issuance-content1">
-                <div class="order-issuance-content-child"></div>
-                <div class="raw-material-reception-and-pre-parent">
-                  <h2 class="order-issuance">
-                    <ol class="raw-material-reception-and-pre">
-                      <li>Raw Material Reception and Preparation</li>
-                    </ol>
-                  </h2>
-                  <div class="description-receiving-raw-mat-wrapper">
-                    <div class="starting-the-process">
-                      Description: Receiving raw materials, cleaning them, and
-                      preparing them for production.
-                    </div>
-                  </div>
-                </div>
-                <button class="order-issuance-content-inner">
-                  <div class="group-div">
-                    <div class="frame-child1"></div>
-                    <a class="edit">Edit</a>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="process-step-order-issuance">
-            <div class="initial-heating-content">
-              <div class="order-issuance-content-child"></div>
-              <div class="initial-heating-rows">
-                <h2 class="order-issuance">
-                  <ol class="raw-material-reception-and-pre">
-                    <li> Initial Heating</li>
-                  </ol>
-                </h2>
-                <div class="order-issuance-descriptions">
-                  <div class="starting-the-process">
-                    Heating the materials to a specific temperature to
-                    facilitate shaping or coating.
-                  </div>
-                </div>
-              </div>
-              <button class="initial-heating-edit-buttons">
-                <div class="group-div">
-                  <div class="frame-child1"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content1">
-              <div class="initial-heating-content-item"></div>
-              <div class="initial-loading-parent">
-                <h2 class="initial-loading1">
-                  <ol class="raw-material-reception-and-pre">
-                    <li>Initial Loading</li>
-                  </ol>
-                </h2>
-                <div class="order-issuance-descriptions">
-                  <div class="starting-the-process">
-                     Transferring materials to the production line.
-                  </div>
-                </div>
-              </div>
-              <button class="initial-heating-content-inner">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content1">
-              <div class="initial-heating-content-item"></div>
-              <div class="main-distribution-area-parent">
-                <h2 class="order-issuance">
-                  <ol class="raw-material-reception-and-pre">
-                    <li>Main Distribution Area</li>
-                  </ol>
-                </h2>
-                <div class="gathering-and-distributing-mat-wrapper">
-                  <div class="starting-the-process">
-                    Gathering and distributing materials.
-                  </div>
-                </div>
-              </div>
-              <button class="initial-heating-content-inner">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content3">
-              <div class="initial-heating-content-item"></div>
-              <div class="main-distribution-area-parent">
-                <h2 class="order-issuance">
-                  <ol class="raw-material-reception-and-pre">
-                    <li>Loading to Coating and Surface Treatment Area</li>
-                  </ol>
-                </h2>
-                <div class="gathering-and-distributing-mat-wrapper">
-                  <div class="starting-the-process">
-                    Gathering and distributing materials.
-                  </div>
-                </div>
-              </div>
-              <button class="initial-heating-content-inner">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content4">
-              <div class="initial-heating-content-item"></div>
-              <div class="powder-coating-parent">
-                <h2 class="order-issuance">
-                  <ol class="raw-material-reception-and-pre">
-                    <li>Powder Coating</li>
-                  </ol>
-                </h2>
-                <div class="order-issuance-descriptions">
-                  <div class="starting-the-process">
-                    Applying protective or decorative coatings.
-                  </div>
-                </div>
-              </div>
-              <button class="initial-heating-content-inner2">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content5">
-              <div class="initial-heating-content-item"></div>
-              <div class="powder-coating-parent">
-                <h2 class="order-issuance">
-                  <ol class="raw-material-reception-and-pre">
-                    <li>Oven</li>
-                  </ol>
-                </h2>
-                <div class="order-issuance-descriptions">
-                  <div class="starting-the-process">
-                    Curing the coating for durability.
-                  </div>
-                </div>
-              </div>
-              <button class="initial-heating-content-inner">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content6">
-              <div class="initial-heating-content-item"></div>
-              <div class="main-distribution-area-parent">
-                <h2 class="order-issuance">
-                  <ol class="raw-material-reception-and-pre">
-                    <li>Packaging</li>
-                  </ol>
-                </h2>
-                <div class="order-issuance-descriptions">
-                  <div class="starting-the-process">
-                    Wrapping and securing the finished product.
-                  </div>
-                </div>
-              </div>
-              <button class="initial-heating-content-inner2">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content7">
-              <div class="initial-heating-content-item"></div>
-              <div class="frame-parent2">
-                <div class="final-quality-check-before-shi-wrapper">
-                  <h2 class="order-issuance">
-                    <ol class="raw-material-reception-and-pre">
-                      <li>Final Quality Check Before Shipping</li>
-                    </ol>
-                  </h2>
-                </div>
-                <div class="thorough-inspection-of">
-                  Thorough inspection of product quality.
-                </div>
-              </div>
-              <button class="initial-heating-content-inner2">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content7">
-              <div class="initial-heating-content-item"></div>
-              <div class="frame-parent3">
-                <div class="final-quality-check-before-shi-container">
-                  <h2 class="order-issuance">
-                    <ol class="raw-material-reception-and-pre">
-                      <li>Final Quality Check Before Shipping</li>
-                    </ol>
-                  </h2>
-                </div>
-                <div class="thorough-inspection-of">
-                  Preparing shipping documents and logistics.
-                </div>
-              </div>
-              <button class="initial-heating-content-inner2">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content9">
-              <div class="initial-heating-content-item"></div>
-              <div class="frame-parent4">
-                <div class="final-loading-wrapper">
-                  <h2 class="order-issuance">
-                    <ol class="raw-material-reception-and-pre">
-                      <li>Final Loading</li>
-                    </ol>
-                  </h2>
-                </div>
-                <div class="thorough-inspection-of">
-                  Loading products for transportation.
-                </div>
-              </div>
-              <button class="initial-heating-content-inner">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
-            </div>
-            <div class="initial-heating-content9">
-              <div class="initial-heating-content-item"></div>
-              <div class="powder-coating-parent">
-                <div class="delivery-wrapper">
-                  <h2 class="order-issuance">
-                    <ol class="raw-material-reception-and-pre">
-                      <li>Delivery</li>
-                    </ol>
-                  </h2>
-                </div>
-                <div class="thorough-inspection-of">
-                  Transporting the product to the customer.
-                </div>
-              </div>
-              <button class="initial-heating-content-inner">
-                <div class="rectangle-parent3">
-                  <div class="frame-child4"></div>
-                  <a class="edit">Edit</a>
-                </div>
-              </button>
+            <div class="process-step-order-issuance" id="stepsContainer">
+              <!-- Steps will be injected here -->
             </div>
           </div>
         </section>
       </main>
+    </div>
+
+    <!-- Add Step Modal Structure -->
+    <div class="modal" id="addStepModal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <form id="addStepForm">
+          <label for="step-name">Step Name:</label>
+          <input type="text" id="step-name" name="stepName" required />
+
+          <label for="step-description">Step Description:</label>
+          <textarea
+            id="step-description"
+            name="stepDescription"
+            required
+          ></textarea>
+
+          <label for="step-number">Step Number:</label>
+          <input type="text" id="step-number" name="stepNumber" required />
+
+          <button type="submit" style="background-color: #6941c6">
+            Add Step
+          </button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
