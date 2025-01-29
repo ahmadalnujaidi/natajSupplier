@@ -103,6 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
     currentOrderId = orderId;
     chatModal.style.display = "block";
     loadChatMessages(orderId);
+    const truncatedOrderId = orderId.toString().slice(-11);
+    document.getElementById("chatOrderIdHeader").innerHTML = `
+      <span style="font-size: smaller;">Order No.</span><br />
+      <span style="font-size: larger;">#${truncatedOrderId}</span>
+    `;
   }
 
   closeChatButton.addEventListener("click", () => {
@@ -125,7 +130,13 @@ document.addEventListener("DOMContentLoaded", () => {
       chatMessages.innerHTML = "";
       messages.forEach((msg) => {
         const msgDiv = document.createElement("div");
-        msgDiv.innerHTML = `<strong>${msg.sender}:</strong> ${msg.content}`;
+        msgDiv.classList.add("chat-bubble");
+        if (msg.sender === "supplier") {
+          msgDiv.classList.add("chat-bubble-right");
+        } else {
+          msgDiv.classList.add("chat-bubble-left");
+        }
+        msgDiv.textContent = msg.content; // Only show message content
         chatMessages.appendChild(msgDiv);
       });
     } catch (error) {

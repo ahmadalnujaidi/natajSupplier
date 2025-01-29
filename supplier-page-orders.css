@@ -1433,6 +1433,27 @@
   background-color: var(--color-slateblue-400);
 }
 
+.chat-bubble {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chat-bubble-right {
+  background-color: var(--color-slateblue-100);
+  color: var(--white-white);
+  align-self: flex-end;
+  margin-left: auto; /* Stick to the right */
+}
+
+.chat-bubble-left {
+  background-color: #f2f4f5;
+  color: var(--color-black);
+  align-self: flex-start;
+}
+
 @media screen and (max-width: 1325px) {
   .supplier-pageorders {
     flex-wrap: wrap;
