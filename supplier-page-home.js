@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:3000/orders")
+  fetch("https://natajbackend.onrender.com/orders")
     .then((response) => response.json())
     .then((orders) => {
       const tbody = document.querySelector("#homeOrdersTable tbody");

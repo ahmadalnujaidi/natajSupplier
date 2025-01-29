@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to fetch and display orders
   async function fetchOrders() {
     try {
-      const response = await fetch("http://localhost:3000/orders");
+      const response = await fetch("https://natajbackend.onrender.com/orders");
       const orders = await response.json();
       const tbody = document.querySelector("#ordersTable tbody");
       tbody.innerHTML = ""; // Clear existing rows
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/orders", {
+      const response = await fetch("https://natajbackend.onrender.com/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadChatMessages(orderId) {
     try {
       const response = await fetch(
-        `http://localhost:3000/orders/${orderId}/chat`
+        `https://natajbackend.onrender.com/orders/${orderId}/chat`
       );
       const messages = await response.json();
       chatMessages.innerHTML = "";
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = chatForm.message.value;
     try {
       const response = await fetch(
-        `http://localhost:3000/orders/${currentOrderId}/chat`,
+        `https://natajbackend.onrender.com/orders/${currentOrderId}/chat`,
         {
           method: "POST",
           headers: {
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
           const response = await fetch(
-            `http://localhost:3000/orders/${currentOrderId}/status-updates`,
+            `https://natajbackend.onrender.com/orders/${currentOrderId}/status-updates`,
             {
               method: "POST",
               headers: {
@@ -259,13 +259,16 @@ document.addEventListener("DOMContentLoaded", () => {
       reader.readAsDataURL(imageFile);
     } else {
       // Send POST request without image
-      fetch(`http://localhost:3000/orders/${currentOrderId}/status-updates`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
+      fetch(
+        `https://natajbackend.onrender.com/orders/${currentOrderId}/status-updates`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      )
         .then((response) => {
           if (response.ok) {
             // Optionally, update the status on the page
@@ -314,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.display = "none";
   }
 
-  fetch("http://localhost:3000/steps")
+  fetch("https://natajbackend.onrender.com/steps")
     .then((response) => response.json())
     .then((steps) => {
       const statusSelect = document.getElementById("statusSelect");

@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/steps", {
+      const response = await fetch("https://natajbackend.onrender.com/steps", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to fetch and render steps
   async function fetchAndRenderSteps() {
     try {
-      const response = await fetch("http://localhost:3000/steps");
+      const response = await fetch("https://natajbackend.onrender.com/steps");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
