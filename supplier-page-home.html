@@ -18,6 +18,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Eloquia Text:wght@300;400;600&display=swap"
     />
+    <script src="./supplier-page-home.js"></script>
   </head>
   <body>
     <div class="supplier-pagehome">
@@ -204,7 +205,7 @@
                   />
                 </div>
                 <div class="text">
-                  <div class="k">48</div>
+                  <div class="k" id="completedCount">48</div>
                   <div class="percentages1">
                     <div class="div24">-2,5%</div>
                   </div>
@@ -212,7 +213,7 @@
               </div>
               <div class="data2">
                 <div class="metric-items">
-                  <a class="total-revenue">Delivered</a>
+                  <a class="total-revenue">Pending</a>
                   <img
                     class="icon16pxdots"
                     loading="lazy"
@@ -221,7 +222,7 @@
                   />
                 </div>
                 <div class="text">
-                  <div class="k">105</div>
+                  <div class="k" id="pendingCount">105</div>
                   <div class="percentages">
                     <div class="div23">+3,4%</div>
                   </div>
@@ -238,7 +239,7 @@
                   />
                 </div>
                 <div class="text">
-                  <div class="k">2</div>
+                  <div class="k" id="delayedCount">2</div>
                   <div class="percentages">
                     <div class="div23">+3,4%</div>
                   </div>
@@ -253,147 +254,46 @@
               <div class="order-table">
                 <div class="table-header1">
                   <div class="header-labels">
-                    <div class="id1">ID</div>
+                    <div class="id1"></div>
                   </div>
                   <div class="header-labels1">
-                    <div class="item1">Buyer Name</div>
+                    <div class="item1"></div>
                   </div>
                   <div class="header-labels2">
-                    <div class="product-name1">Product Name</div>
+                    <div class="product-name1"></div>
                   </div>
                   <div class="header-labels3">
-                    <div class="qty1">Qty</div>
+                    <div class="qty1"></div>
                   </div>
                   <div class="header-labels4">
-                    <div class="deadline">Deadline</div>
+                    <div class="deadline"></div>
                   </div>
                   <div class="header-labels5">
-                    <div class="amount1">Amount</div>
+                    <div class="amount1"></div>
                   </div>
-                  <div class="status1">Status</div>
-                </div>
-                <div class="table-separator"></div>
-              </div>
-            </div>
-            <div class="rows4">
-              <div class="order-items">
-                <div class="row12">
-                  <div class="i293dsa3913">I293DSA39</div>
-                  <div class="customer14">customer1</div>
-                  <div class="january-20-202213">January 20, 2022</div>
-                  <div class="order-details1">$799.00</div>
-                </div>
-                <div class="row12">
-                  <div class="i293dsa3913">U2349SD12</div>
-                  <div class="iphone-138">customer2</div>
-                  <div class="january-20-202214">January 20, 2022</div>
-                  <div class="div27">$149.99</div>
-                </div>
-                <div class="row12">
-                  <div class="i293dsa3913">F2349SU38</div>
-                  <div class="iphone-138">customer3</div>
-                  <div class="january-20-202215">January 20, 2022</div>
-                  <div class="div28">$1099.99</div>
-                </div>
-              </div>
-              <div class="dummy-order">
-                <div class="i293dsa3916">F2349SU38</div>
-                <div class="customer41">customer4</div>
-              </div>
-              <div class="date-container">
-                <div class="nested-container">
-                  <div class="deep-nested-container">
-                    <div class="material-container">
-                      <div class="material-list">
-                        <div class="aluminium6">Aluminium</div>
-                        <div class="iron7">Iron</div>
-                        <div class="iron7">Aluminium</div>
-                        <div class="single-material">
-                          <div class="aluminium8">Aluminium</div>
-                          <div class="double-nested-container">
-                            <div class="inner-material-list">
-                              <div class="iron8">Iron</div>
-                              <div class="iron7">Iron</div>
-                              <a class="aluminium9">Aluminium</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="empty-cells">
-                      <div class="empty-placeholder">4</div>
-                      <div class="empty-data">
-                        <div class="placeholders">1</div>
-                      </div>
-                      <div class="empty-data1">
-                        <div class="placeholders">2</div>
-                      </div>
-                      <div class="empty-data1">
-                        <div class="div30">2</div>
-                      </div>
-                      <div class="empty-data1">
-                        <div class="placeholders">4</div>
-                      </div>
-                      <div class="empty-data4">
-                        <div class="placeholders">1</div>
-                      </div>
-                      <div class="empty-data5">
-                        <div class="placeholders">2</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="date-items">
-                  <div class="january-20-202216">January 20, 2022</div>
-                </div>
-                <div class="date-items1">
-                  <div class="div34">$1099.99</div>
-                </div>
-                <div class="status-container">
-                  <div class="status-items">
-                    <div class="started1">Started</div>
-                  </div>
-                  <div class="status-items1">
-                    <div class="started1">Prepared</div>
-                  </div>
-                  <div class="started1">heating</div>
-                  <div class="loading-container">
-                    <div class="started1">Loading</div>
-                    <div class="coating-container">
-                      <div class="status-container">
-                        <div class="status-items">
-                          <div class="started1">Coating</div>
-                        </div>
-                        <div class="coating-names1">
-                          <div class="started1">oven</div>
-                        </div>
-                        <a class="packaging6">Packaging</a>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="status1"></div>
                 </div>
               </div>
             </div>
-            <div class="rows5">
-              <div class="row15">
-                <div class="i293dsa3917">I293DSA39</div>
-                <div class="customer15">customer1</div>
-                <div class="january-20-202217">January 20, 2022</div>
-                <div class="dummy-order-details">$799.00</div>
-              </div>
-              <div class="row16">
-                <div class="i293dsa3917">U2349SD12</div>
-                <div class="iphone-1310">customer2</div>
-                <div class="january-20-202218">January 20, 2022</div>
-                <div class="div35">$149.99</div>
-              </div>
-              <div class="row16">
-                <div class="i293dsa3917">F2349SU38</div>
-                <div class="iphone-1310">customer3</div>
-                <div class="january-20-202219">January 20, 2022</div>
-                <div class="div36">$1099.99</div>
-              </div>
-            </div>
+            <table id="homeOrdersTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Buyer Name</th>
+                  <th>Product Name</th>
+                  <th>Qty</th>
+                  <th>Deadline</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+            </table>
+            <div class="table-separator"></div>
+            <table id="homeOrdersTable">
+              <tbody>
+                <!-- Will be filled by supplier-page-home.js -->
+              </tbody>
+            </table>
           </div>
           <div class="chart-panel">
             <div class="chart-container">

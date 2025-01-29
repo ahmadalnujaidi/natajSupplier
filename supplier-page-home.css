@@ -489,7 +489,7 @@
   flex: 1;
   box-shadow: 0px 21px 94px rgba(0, 0, 0, 0.03);
   border-radius: var(--br-6xs);
-  background-color: var(--white-white);
+  background-color: rgba(255, 255, 0, 0.12);
   border: 0.5px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   height: 96px;
@@ -1403,6 +1403,68 @@
   font-size: var(--font-weights-text-semibold-size);
   color: var(--color-slateblue-100);
   font-family: var(--font-inter);
+}
+
+#homeOrdersTable {
+  width: 100%;
+  table-layout: fixed;
+}
+
+#homeOrdersTable th,
+#homeOrdersTable td {
+  text-align: left;
+  padding: 8px 10px;
+  color: black; /* Set text color to black */
+}
+
+#homeOrdersTable th:nth-child(1),
+#homeOrdersTable td:nth-child(1),
+#homeOrdersTable th:nth-child(5),
+#homeOrdersTable td:nth-child(5) {
+  color: #a7aeb1; /* Set text color to A7AEB1 */
+}
+
+#homeOrdersTable th:nth-child(1),
+#homeOrdersTable td:nth-child(1) {
+  width: 14.28%;
+}
+
+#homeOrdersTable th:nth-child(2),
+#homeOrdersTable td:nth-child(2) {
+  width: 14.28%;
+}
+
+#homeOrdersTable th:nth-child(3),
+#homeOrdersTable td:nth-child(3) {
+  width: 14.28%;
+}
+
+#homeOrdersTable th:nth-child(4),
+#homeOrdersTable td:nth-child(4) {
+  width: 14.28%;
+}
+
+#homeOrdersTable th:nth-child(5),
+#homeOrdersTable td:nth-child(5) {
+  width: 14.28%;
+}
+
+#homeOrdersTable th:nth-child(6),
+#homeOrdersTable td:nth-child(6) {
+  width: 14.28%;
+}
+
+#homeOrdersTable th:nth-child(7),
+#homeOrdersTable td:nth-child(7) {
+  width: 14.28%;
+}
+
+#homeOrdersTable th {
+  color: #a7aeb1; /* Set text color to A7AEB1 for all headers */
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 1325px) {
