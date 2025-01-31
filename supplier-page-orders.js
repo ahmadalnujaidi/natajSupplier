@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const tr = document.createElement("tr");
         const truncatedId = order.id.toString().slice(-6); // Get last 6 digits of ID
         tr.innerHTML = `
-          <td>${truncatedId}</td>
+          <td data-full-id="${order.id}" class="order-id">${truncatedId}</td>
           <td>${order.buyerName}</td>
           <td>${order.orderName}</td>
           <td>${order.quantity}</td>
@@ -40,6 +40,21 @@ document.addEventListener("DOMContentLoaded", () => {
           <td><button class="chat-button" data-order-id="${order.id}"><img src="./public/bxschat.svg"/></button></td>
         `;
         tbody.appendChild(tr);
+      });
+
+      // Add click handler for order IDs
+      tbody.addEventListener("click", (e) => {
+        if (e.target.classList.contains("order-id")) {
+          const fullId = e.target.getAttribute("data-full-id");
+          navigator.clipboard.writeText(fullId).then(() => {
+            // Optional: Show feedback
+            const originalText = e.target.textContent;
+            e.target.textContent = "Copied!";
+            setTimeout(() => {
+              e.target.textContent = originalText;
+            }, 1000);
+          });
+        }
       });
 
       // Add event listeners to chat buttons after orders are fetched

@@ -1419,6 +1419,20 @@
   padding: 5px 10px;
 }
 
+#ordersTable td:first-child {
+  cursor: help;
+}
+
+#ordersTable td:first-child {
+  cursor: pointer;
+}
+
+/* Remove the hover tooltip styles */
+#ordersTable td:first-child:hover,
+#ordersTable td[title]:hover::after {
+  /* Remove these rules */
+}
+
 .chat-button {
   padding: var(--padding-xs) var(--padding-sm);
   /* background-color: var(--color-slateblue-300); */
