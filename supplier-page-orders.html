@@ -300,14 +300,22 @@
         <div id="chatMessages">
           <!-- Chat messages will be displayed here -->
         </div>
+        <br />
+        <hr />
         <form id="chatForm">
-          <input
-            type="text"
-            name="message"
-            placeholder="Type your message..."
-            required
-          />
-          <button type="submit">Send</button>
+          <div style="position: relative; margin: 0; padding: 0">
+            <input
+              type="text"
+              name="message"
+              placeholder="Type your message..."
+              required
+              style="width: 100%; padding-right: 0px;"
+            />
+            <button type="submit" style="position: absolute; right: 0px; top: 40%; transform: translateY(-50%); max-height: 70%; margin: 0; padding: 8px; padding-bottom: 4px; padding-right: 5px; margin-bottom: 10px;" >
+              <img src="./public/image.png" alt="send" height="15px" width="20px"/>
+            </button>
+          </div>
+          </div>
         </form>
       </div>
     </div>
@@ -316,22 +324,43 @@
     <div class="modal" id="statusModal">
       <div class="modal-content">
         <span class="close-button" id="closeStatusModal">&times;</span>
+        <h1>Update Status</h1>
         <form id="statusForm">
-          <label for="statusSelect">Status:</label>
-          <select id="statusSelect" name="status">
-            <!-- Removed static <option value="pending">Pending</option> etc. -->
-          </select>
+          <div style="display: flex; gap: 20px; margin: 0; padding: 0">
+            <div style="flex: 1; display: flex; flex-direction: column">
+              <label for="statusSelect">Change Status to</label>
+              <select
+                id="statusSelect"
+                name="status"
+                style="width: 100%; height: 40px"
+              >
+                <!-- Removed static <option> elements -->
+              </select>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column">
+              <label for="location">Location:</label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                style="width: 85%; max-height: 50px"
+              />
+            </div>
+          </div>
 
-          <label for="location">Location:</label>
-          <input type="text" id="location" name="location" />
+          <div style="display: flex; gap: 20px; margin: 0; padding: 0">
+            <div style="flex: 1; display: flex; flex-direction: column">
+              <label for="notes">Notes:</label>
+              <textarea id="notes" name="notes"></textarea>
 
-          <label for="notes">Notes:</label>
-          <textarea id="notes" name="notes"></textarea>
+              <label for="image">Image:</label>
+              <input type="file" id="image" name="image" accept="image/*" />
+            </div>
+          </div>
 
-          <label for="image">Image:</label>
-          <input type="file" id="image" name="image" accept="image/*" />
-
-          <button type="submit">Update Status</button>
+          <div style="text-align: right">
+            <button type="submit" style="max-width: 30%">Save</button>
+          </div>
         </form>
       </div>
     </div>
