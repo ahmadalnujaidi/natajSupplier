@@ -770,9 +770,9 @@
   background-color: transparent;
   width: 221px;
   margin: 0 !important;
-  position: absolute;
-  right: -41px;
-  bottom: -58px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -780,7 +780,7 @@
   box-sizing: border-box;
   gap: var(--gap-base);
   white-space: nowrap;
-  z-index: 1;
+  z-index: 1000;
 }
 .rectangle-parent16 {
   width: 1131px;
