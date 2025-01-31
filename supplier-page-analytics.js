@@ -12,7 +12,7 @@ function closeModal() {
 }
 
 // Function to handle form submission
-function handleFormSubmit(event) {
+async function handleFormSubmit(event) {
   event.preventDefault();
   const form = document.getElementById("analysisForm");
 
@@ -20,12 +20,39 @@ function handleFormSubmit(event) {
   const formData = new FormData(form);
   const data = {};
   formData.forEach((value, key) => {
-    data[key] = value;
+    if (key !== "orderID") {
+      if (key === "defectPrediction") {
+        data[key] = value; // string
+      } else {
+        data[key] = Number(value); // number
+      }
+    }
   });
 
-  // TODO: Add your form submission logic here (e.g., send data to the server)
+  // Check if defectPrediction is empty
+  if (data.defectPrediction === "") {
+    alert("Defect Prediction cannot be empty.");
+    return;
+  }
 
-  console.log("Form Submitted:", data);
+  const orderID = formData.get("orderID");
+  const url = `https://natajbackend.onrender.com/orders/${orderID}/data`;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    console.log("Submit Response:", result);
+  } catch (error) {
+    console.error("Error during form submission:", error);
+  }
+
   form.reset(); // Clear the form inputs
   // Close the modal after submission
   closeModal();
