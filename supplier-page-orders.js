@@ -31,11 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const truncatedId = order.id.toString().slice(-6); // Get last 6 digits of ID
         tr.innerHTML = `
           <td data-full-id="${order.id}" class="order-id">${truncatedId}</td>
-          <td>${order.buyerName}</td>
-          <td>${order.orderName}</td>
-          <td>${order.quantity}</td>
+          <td style="color: black">${order.buyerName}</td>
+          <td style="color: black">${order.orderName}</td>
+          <td style="color: black">${order.quantity}</td>
           <td>${order.deadline}</td>
-          <td>$${order.amount}</td>
+          <td style="color: black">$${order.amount}</td>
           <td class="status-clickable" data-order-id="${order.id}">${order.currentStatus}</td>
           <td><button class="chat-button" data-order-id="${order.id}"><img src="./public/bxschat.svg"/></button></td>
         `;
