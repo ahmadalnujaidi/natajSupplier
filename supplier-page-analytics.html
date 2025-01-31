@@ -26,6 +26,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Public Sans:wght@400;500&display=swap"
     />
+    <script src="supplier-page-analytics.js"></script>
   </head>
   <body>
     <div class="supplier-pageanalytics">
@@ -167,6 +168,7 @@
           </div>
           <div class="ai-analytics-parent">
             <a class="ai-analytics">AI Analytics</a>
+            <button class="new-analysis-button">New Analysis</button>
             <footer class="analytics-grid">
               <div class="rectangle-parent14">
                 <div class="frame-child15"></div>
@@ -613,6 +615,73 @@
           </div>
         </section>
       </main>
+    </div>
+    <!-- Modal Structure -->
+    <div class="modal" id="newAnalysisModal">
+      <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <h1>Product Data</h1>
+        <form id="analysisForm">
+          <label for="orderID">Order ID:</label>
+          <select id="orderID" name="orderID" required>
+            <option value="">Select an option</option>
+            <!-- Options populated dynamically -->
+          </select>
+
+          <div class="input-row">
+            <div class="form-group">
+              <label for="weight">Weight:</label>
+              <input type="number" id="weight" name="weight" required />
+            </div>
+            <div class="form-group">
+              <label for="temperature">Temperature:</label>
+              <input
+                type="number"
+                id="temperature"
+                name="temperature"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="form-group">
+              <label for="speed">Speed:</label>
+              <input type="number" id="speed" name="speed" required />
+            </div>
+            <div class="form-group">
+              <label for="processTime">Process Time:</label>
+              <input
+                type="number"
+                id="processTime"
+                name="processTime"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="form-group">
+              <label for="components">Components:</label>
+              <input type="number" id="components" name="components" required />
+            </div>
+            <div class="form-group">
+              <label for="efficiency">Efficiency:</label>
+              <input type="number" id="efficiency" name="efficiency" required />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="form-group">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" required />
+            </div>
+            <!-- If there's an eighth input in the future, it can be added here -->
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
