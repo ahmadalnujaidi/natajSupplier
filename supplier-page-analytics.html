@@ -679,6 +679,30 @@
             <!-- If there's an eighth input in the future, it can be added here -->
           </div>
 
+          <div class="input-row">
+            <div class="form-group">
+              <label for="delayPrediction">Delay Prediction:</label>
+              <textarea
+                type="number"
+                id="delayPrediction"
+                name="delayPrediction"
+                required
+                readonly
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="defectPrediction">Defect Prediction:</label>
+              <textarea
+                type="number"
+                id="defectPrediction"
+                name="defectPrediction"
+                readonly
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="button" id="analyzeButton">Analyze</button>
           <button type="submit">Submit</button>
         </form>
       </div>
