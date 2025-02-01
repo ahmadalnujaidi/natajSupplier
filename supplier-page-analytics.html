@@ -707,5 +707,30 @@
         </form>
       </div>
     </div>
+    <!-- Chatbot Modal Structure -->
+    <div class="chatbot-modal" id="chatbotModal">
+      <div class="chatbot-modal-content">
+        <span class="chatbot-close-button" id="closeChatbot">&times;</span>
+        <div class="chatbot-header">
+          <img
+            class="chatbot-icon"
+            src="./public/magerobotfill.svg"
+            alt="Chatbot Icon"
+          />
+          <h2>Nataj Chatbot</h2>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <!-- Messages will be added here dynamically -->
+        </div>
+        <div class="chat-input-container">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Type your message..."
+          />
+          <button id="sendMessage">Send</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

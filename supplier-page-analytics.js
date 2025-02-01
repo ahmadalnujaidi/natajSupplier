@@ -149,6 +149,68 @@ function validateForm() {
   analyzeButton.disabled = !allFilled;
 }
 
+// Chatbot Modal Functions
+function openChatbot() {
+  const modal = document.getElementById("chatbotModal");
+  modal.style.display = "block";
+  // Add initial bot message
+  addMessage("Hello! How can I help you today?", "bot");
+}
+
+function closeChatbot() {
+  const modal = document.getElementById("chatbotModal");
+  modal.style.display = "none";
+}
+
+function addMessage(text, sender) {
+  const messagesDiv = document.getElementById("chatMessages");
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", `${sender}-message`);
+  messageElement.textContent = text;
+  messagesDiv.appendChild(messageElement);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+async function handleChatSubmit() {
+  const input = document.getElementById("chatInput");
+  const message = input.value.trim();
+
+  if (message) {
+    // Add user message
+    addMessage(message, "user");
+    input.value = "";
+
+    try {
+      // Add loading message
+      addMessage("Typing...", "bot");
+
+      // Send message to backend
+      const response = await fetch(
+        "https://chatbotbackend-kjy5.onrender.com/chat",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message }),
+        }
+      );
+
+      const data = await response.json();
+
+      console.log("Chatbot Response:", data);
+
+      // Remove loading message and add bot response
+      document.querySelector(".bot-message:last-child").remove();
+      addMessage(data.response.content, "bot");
+    } catch (error) {
+      console.error("Error:", error);
+      document.querySelector(".bot-message:last-child").remove();
+      addMessage("Sorry, I'm having trouble connecting right now.", "bot");
+    }
+  }
+}
+
 // Add event listeners to inputs for real-time validation
 document.addEventListener("DOMContentLoaded", () => {
   const inputs = document.querySelectorAll(
@@ -178,4 +240,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add event listener for Analyze button
   const analyzeButton = document.querySelector('button[type="button"]');
   analyzeButton.addEventListener("click", handleAnalyze);
+
+  // Add chatbot event listeners
+  const chatbotButton = document.querySelector(".chatbot-background-parent");
+  const closeChatbotButton = document.getElementById("closeChatbot");
+  const sendButton = document.getElementById("sendMessage");
+  const chatInput = document.getElementById("chatInput");
+
+  chatbotButton.addEventListener("click", openChatbot);
+  closeChatbotButton.addEventListener("click", closeChatbot);
+  sendButton.addEventListener("click", handleChatSubmit);
+
+  chatInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      handleChatSubmit();
+    }
+  });
+
+  // Close modal when clicking outside
+  window.addEventListener("click", (event) => {
+    const modal = document.getElementById("chatbotModal");
+    if (event.target == modal) {
+      closeChatbot();
+    }
+  });
 });
