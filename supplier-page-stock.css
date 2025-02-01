@@ -861,6 +861,36 @@
   min-height: 78px;
   gap: var(--gap-xl);
 }
+
+.header-row {
+  position: sticky;
+  top: 0;
+  z-index: 98;
+  background-color: var(--color-whitesmoke-100);
+  padding: var(--padding-8xl) var(--padding-30xl) var(--padding-8xl)
+    var(--padding-9xl);
+  border-radius: var(--br-5xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 717px;
+  min-height: 78px;
+  box-sizing: border-box;
+  align-self: stretch; /* Match parent width */
+  width: 100%; /* Take full width */
+  margin: 0; /* Remove any margins */
+}
+
+.header-column {
+  font-weight: 600;
+  color: var(--theme-dark);
+  font-size: var(--font-sizes-text-xs-size);
+  font-family: var(--font-montserrat);
+  display: flex;
+  align-items: center; /* Center text vertically */
+}
+
 .frame-wrapper22 {
   flex: 1;
   display: flex;
@@ -934,6 +964,42 @@
   font-size: var(--font-weights-text-semibold-size);
   color: var(--color-slateblue-100);
   font-family: var(--font-inter);
+}
+
+/* Add these styles before the media queries */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 4px 8px;
+  border: none;
+  border-radius: var(--br-8xs);
+  cursor: pointer;
+  font-size: var(--font-sizes-text-xs-size);
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+}
+
+.edit-btn {
+  background-color: var(--color-slateblue-100);
+  color: var(--white-white);
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: var(--white-white);
+}
+
+.edit-btn:hover {
+  background-color: var(--color-slateblue-400);
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
 }
 
 @media screen and (max-width: 1200px) {
