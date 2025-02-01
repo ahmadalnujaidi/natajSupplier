@@ -1062,6 +1062,38 @@
   align-self: flex-start;
 }
 
+.menu-icons-row2-5 {
+  align-self: stretch;
+  backdrop-filter: blur(4px);
+  border-radius: var(--br-9xs);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-sm) var(--padding-base) var(--padding-2xs)
+    var(--padding-mid);
+  gap: var(--gap-xl);
+}
+
+.vaadinstock-icon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Make sure the Stock link matches other navigation links */
+.menu-icons-row2-5 .process3 {
+  text-decoration: none;
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+  color: inherit;
+  display: inline-block;
+  min-width: 65px;
+}
+
 @media screen and (max-width: 800px) {
   .frame-parent7 {
     display: none;

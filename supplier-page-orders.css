@@ -1469,6 +1469,43 @@
   align-self: flex-start;
 }
 
+.vaadinstock-icon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.stock {
+  text-decoration: none;
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+  color: inherit;
+}
+
+.stock-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) 0px 0px;
+}
+
+.menu-icons-stock {
+  align-self: stretch;
+  backdrop-filter: blur(4px);
+  border-radius: var(--br-9xs);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-sm) var(--padding-base) var(--padding-2xs)
+    var(--padding-mid);
+  gap: var(--gap-xl);
+}
+
 @media screen and (max-width: 1325px) {
   .supplier-pageorders {
     flex-wrap: wrap;
