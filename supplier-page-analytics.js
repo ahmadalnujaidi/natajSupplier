@@ -216,6 +216,86 @@ async function handleChatSubmit() {
   }
 }
 
+// Function to fetch and display order analytics data
+async function fetchOrderAnalytics() {
+  try {
+    const response = await fetch(
+      "https://natajbackend.onrender.com/order-data"
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+
+    // Clear existing analytics grid
+    const analyticsGrid = document.querySelector(".analytics-grid");
+    analyticsGrid.innerHTML = "";
+
+    // Map and display each order
+    data.forEach((order) => {
+      const orderHTML = `
+        <div class="rectangle-parent14">
+          <div class="frame-child15"></div>
+          <div class="order-number-row">
+            <div class="order-no-784633913">Order No. #${order.orderID}</div>
+          </div>
+          <div class="target-shape-row">
+            <div class="target-shape-row-inner">
+              <div class="line-div"></div>
+            </div>
+            <div class="target-header-row">
+              <div class="target">
+                <div class="shape2"></div>
+                <div class="frame-parent8">
+                  <div class="frame-wrapper3">
+                    <div class="frame-wrapper4">
+                      <div class="shape-parent">
+                        <img class="shape-icon" alt="" src="./public/shape.svg" />
+                        <div class="lets-iconsorder-light-parent">
+                          <img class="lets-iconsorder-light" loading="lazy" alt="" src="./public/letsiconsorderlight.svg" />
+                          <img class="path-icon" alt="" src="./public/path.svg" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="wrapper11">
+                    <div class="div39">${order.defectPrediction}</div>
+                  </div>
+                  <div class="customer-target">
+                    <p class="future-demand">Defect</p>
+                    <p class="future-demand">Prediction</p>
+                  </div>
+                </div>
+              </div>
+              <div class="target1">
+                <div class="shape2"></div>
+                <div class="frame-parent8">
+                  <div class="frame-wrapper6">
+                    <div class="shape-parent">
+                      <img class="shape-icon" alt="" src="./public/shape.svg" />
+                      <div class="lets-iconsorder-light-parent">
+                        <img class="ic-goal-icon" loading="lazy" alt="" src="./public/ic-goal@2x.png" />
+                        <img class="path-icon" alt="" src="./public/path.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="wrapper13">
+                    <div class="div41">${order.delayPrediction} days</div>
+                  </div>
+                  <div class="customer-target3">Delay Prediction</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      analyticsGrid.insertAdjacentHTML("beforeend", orderHTML);
+    });
+  } catch (error) {
+    console.error("Error fetching order analytics:", error);
+  }
+}
+
 // Add event listeners to inputs for real-time validation
 document.addEventListener("DOMContentLoaded", () => {
   const inputs = document.querySelectorAll(
@@ -269,4 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
       closeChatbot();
     }
   });
+
+  // Fetch and display order analytics when page loads
+  fetchOrderAnalytics();
 });
