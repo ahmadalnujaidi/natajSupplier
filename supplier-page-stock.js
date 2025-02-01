@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Function to fetch and render all stocks
   async function loadStocks() {
     try {
-      const response = await fetch("http://localhost:3000/stocks");
+      const response = await fetch("https://natajbackend.onrender.com/stocks");
       if (!response.ok) {
         throw new Error("Failed to fetch stocks");
       }
@@ -106,9 +106,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     try {
-      const response = await fetch(`http://localhost:3000/stocks/${stockId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://natajbackend.onrender.com/stocks/${stockId}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to delete stock");
@@ -128,7 +131,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Add these new functions for edit functionality
   async function openEditModal(stockId) {
     try {
-      const response = await fetch(`http://localhost:3000/stocks/${stockId}`);
+      const response = await fetch(
+        `https://natajbackend.onrender.com/stocks/${stockId}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch stock details");
       }
@@ -174,13 +179,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     };
 
     try {
-      const response = await fetch(`http://localhost:3000/stocks/${stockId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://natajbackend.onrender.com/stocks/${stockId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to update stock");
@@ -216,7 +224,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/stocks", {
+      const response = await fetch("https://natajbackend.onrender.com/stocks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
