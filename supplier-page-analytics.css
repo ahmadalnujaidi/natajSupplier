@@ -322,6 +322,7 @@
   box-sizing: border-box;
   gap: var(--gap-5xs);
   max-width: 100%;
+  width: 300px; /* Added fixed width */
 }
 .streamlinecustomer-support-1-icon2 {
   width: 30px;
@@ -335,14 +336,13 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-4xs) 0px 0px;
 }
 .search-analytics {
   align-self: stretch;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center; /* Changed from flex-start */
+  justify-content: space-between; /* Changed from flex-start */
   gap: var(--gap-16xl);
   top: 0;
   z-index: 99;
@@ -765,22 +765,20 @@
 .chatbot-background-parent {
   cursor: pointer;
   border: none;
-  padding: var(--padding-2xl) var(--padding-3xl) var(--padding-2xl)
-    var(--padding-7xl);
+  padding: var(--padding-xs) var(--padding-xl);
   background-color: transparent;
   width: 221px;
-  margin: 0 !important;
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
   gap: var(--gap-base);
   white-space: nowrap;
-  z-index: 1000;
+  position: relative; /* Changed from fixed */
+  right: auto; /* Remove fixed positioning */
+  bottom: auto; /* Remove fixed positioning */
+  z-index: 1;
 }
 .rectangle-parent16 {
   width: 1131px;
