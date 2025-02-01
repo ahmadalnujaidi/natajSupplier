@@ -18,44 +18,49 @@ async function handleFormSubmit(event) {
 
   // Collect form data
   const formData = new FormData(form);
-  const data = {};
-  formData.forEach((value, key) => {
-    if (key !== "orderID") {
-      if (key === "defectPrediction") {
-        data[key] = value; // string
-      } else {
-        data[key] = Number(value); // number
-      }
-    }
-  });
 
-  // Check if defectPrediction is empty
-  if (data.defectPrediction === "") {
-    alert("Defect Prediction cannot be empty.");
-    return;
-  }
-
-  const orderID = formData.get("orderID");
-  const url = `https://natajbackend.onrender.com/orders/${orderID}/data`;
+  // Create data object with proper structure and capitalization
+  const data = {
+    orderID: formData.get("orderID"),
+    Weight: Number(formData.get("weight")),
+    Temperature: Number(formData.get("temperature")),
+    Speed: Number(formData.get("speed")),
+    processTime: Number(formData.get("processTime")),
+    Components: Number(formData.get("components")),
+    Efficiency: Number(formData.get("efficiency")),
+    Quantity: Number(formData.get("quantity")),
+    delayPrediction: Number(formData.get("delayPrediction")),
+    defectPrediction: formData.get("defectPrediction"),
+    orderIdStr: "1",
+  };
 
   try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://natajbackend.onrender.com/order-data",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     const result = await response.json();
     console.log("Submit Response:", result);
+
+    if (response.ok) {
+      // Success - close modal and optionally show success message
+      closeModal();
+      alert("Data submitted successfully!");
+    } else {
+      // Handle error response
+      alert("Error submitting data: " + result.message);
+    }
   } catch (error) {
     console.error("Error during form submission:", error);
+    alert("Error submitting data. Please try again.");
   }
-
-  form.reset(); // Clear the form inputs
-  // Close the modal after submission
-  closeModal();
 }
 
 // Function to fetch orders and populate the dropdown
